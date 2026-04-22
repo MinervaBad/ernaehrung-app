@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Ina & Alex — Ernährungs-App</title>
+
+  <link rel="apple-touch-icon" href="data:image/jpeg;base64,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">
+  <link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ina & Alex">
+  <meta name="theme-color" content="#4a7050">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#faf6f0; --warm:#fff9f2;
+  --sage:#7a9e7e; --sage-dark:#4a7050; --sage-light:#a8c5ab;
+  --gold:#c9a84c; --gold-light:#f0d898;
+  --terracotta:#c4714a;
+  --dark:#2c2416; --mid:#6b5b3e; --line:#e8ddd0;
+  --red:#b03030; --red-light:#fdeaea;
+  --alex:#1a3a5c; --alex-light:#d4e4f4; --alex-mid:#2d5f8a;
+  --ina:#4a7050; --ina-light:#d4ead6;
+  --keto:#8b4513; --keto-light:#f5e6d8;
+  --both:#6b5b3e; --both-light:#f0ead8;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--cream);font-family:'DM Sans',sans-serif;color:var(--dark);display:flex;flex-direction:column;}
+
+/* PROFILE SWITCHER */
+.profile-bar{background:var(--dark);display:flex;align-items:center;padding:8px 16px;gap:8px;flex-shrink:0;}
+.profile-label{font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-right:4px;}
+.profile-btn{padding:6px 16px;border-radius:20px;border:none;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.profile-btn.ina{background:rgba(74,112,80,0.2);color:var(--sage-light);}
+.profile-btn.ina.active{background:var(--sage-dark);color:#fff;}
+.profile-btn.alex{background:rgba(26,58,92,0.2);color:var(--alex-light);}
+.profile-btn.alex.active{background:var(--alex-mid);color:#fff;}
+.profile-btn.both{background:rgba(107,91,62,0.2);color:#d4c4a0;}
+.profile-btn.both.active{background:var(--both);color:#fff;}
+
+/* NAV */
+.nav{background:var(--sage-dark);display:flex;border-bottom:2px solid rgba(255,255,255,0.1);flex-shrink:0;}
+.nav.alex-mode{background:var(--alex);}
+.nav.both-mode{background:var(--both);}
+.nav-btn{flex:1;padding:12px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.5);font-size:9px;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.2s;}
+.nav-btn .icon{font-size:19px;}
+.nav-btn.active{color:#fff;background:rgba(255,255,255,0.1);}
+
+/* SCREENS */
+.screen{display:none;flex:1;overflow-y:auto;flex-direction:column;}
+.screen.active{display:flex;}
+
+/* HEADER */
+.screen-header{padding:16px 16px 12px;flex-shrink:0;}
+.screen-header.ina-header{background:var(--sage-dark);}
+.screen-header.alex-header{background:var(--alex);}
+.screen-header.both-header{background:var(--both);}
+.screen-header h1{font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:2px;}
+.screen-header h1 em{color:var(--gold-light);font-style:italic;}
+.screen-header p{font-size:11px;color:rgba(255,255,255,0.6);}
+.profile-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 10px;border-radius:12px;margin-bottom:6px;}
+.badge-ina{background:rgba(255,255,255,0.15);color:#fff;}
+.badge-alex{background:rgba(255,255,255,0.15);color:#fff;}
+.badge-both{background:rgba(255,255,255,0.15);color:#fff;}
+
+/* KETO BADGE */
+.keto-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;background:var(--keto-light);color:var(--keto);padding:2px 8px;border-radius:4px;font-weight:500;}
+.both-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;background:var(--both-light);color:var(--both);padding:2px 8px;border-radius:4px;font-weight:500;}
+.ina-only-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;background:var(--ina-light);color:var(--ina);padding:2px 8px;border-radius:4px;font-weight:500;}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:7px;padding:10px 16px;overflow-x:auto;flex-shrink:0;background:var(--warm);border-bottom:1px solid var(--line);}
+.filter-bar::-webkit-scrollbar{display:none;}
+.filter-btn{white-space:nowrap;padding:5px 12px;border-radius:20px;border:1px solid var(--line);background:var(--warm);color:var(--mid);font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;flex-shrink:0;}
+.filter-btn.active{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark);}
+.filter-btn.active.alex-active{background:var(--alex-mid);border-color:var(--alex-mid);}
+
+/* REZEPT CARDS */
+.rezepte-list{padding:0 16px 8px;display:flex;flex-direction:column;gap:8px;}
+.rezept-section-title{font-family:'Playfair Display',serif;font-size:15px;padding:12px 16px 6px;color:var(--dark);}
+.rezept-section-title.red{color:var(--red);}
+.rezept-card{background:var(--warm);border:1px solid var(--line);border-radius:13px;overflow:hidden;cursor:pointer;transition:transform 0.15s;position:relative;}
+.rezept-card:active{transform:scale(0.98);}
+.rezept-card.keto-card{border-color:rgba(139,69,19,0.25);}
+.rezept-card.both-card{border-color:rgba(107,91,62,0.25);}
+.rezept-card.abgelehnt-card{opacity:0.5;}
+.rezept-card-inner{padding:12px;}
+.rezept-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;}
+.rezept-name{font-family:'Playfair Display',serif;font-size:14px;color:var(--dark);flex:1;margin-right:6px;}
+.rezept-type{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:500;white-space:nowrap;}
+.type-fruehstueck{background:rgba(201,168,76,0.15);color:#8a6a00;}
+.type-mittag{background:rgba(74,112,80,0.12);color:var(--sage-dark);}
+.type-abend{background:rgba(74,112,80,0.2);color:#2a4f30;}
+.type-snack{background:rgba(196,113,74,0.12);color:var(--terracotta);}
+.rezept-desc{font-size:11px;color:var(--mid);line-height:1.5;margin-bottom:6px;}
+.rezept-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px;}
+.rezept-tag{font-size:10px;background:rgba(74,112,80,0.08);color:var(--sage-dark);padding:2px 6px;border-radius:4px;}
+.rezept-tag.keto-tag{background:var(--keto-light);color:var(--keto);}
+.like-badge{position:absolute;top:8px;right:8px;font-size:13px;}
+
+/* KETO ANPASSUNG BOX */
+.keto-anpassung{background:var(--keto-light);border-radius:8px;padding:9px 11px;margin-top:6px;}
+.keto-anpassung-title{font-size:10px;font-weight:500;color:var(--keto);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;}
+.keto-anpassung-text{font-size:11px;color:#5a3010;line-height:1.5;}
+
+/* SWIPE */
+.swipe-screen{flex:1;display:flex;flex-direction:column;align-items:center;padding:14px;overflow:hidden;}
+.swipe-progress{width:100%;background:var(--line);height:4px;border-radius:2px;margin-bottom:14px;}
+.swipe-progress-bar{height:4px;border-radius:2px;transition:width 0.3s;}
+.ina-bar{background:var(--sage-dark);}
+.alex-bar{background:var(--alex-mid);}
+.swipe-counter{font-size:11px;color:var(--mid);margin-bottom:10px;text-align:center;}
+.swipe-card-container{flex:1;width:100%;max-width:360px;position:relative;display:flex;align-items:center;justify-content:center;}
+.swipe-card{background:var(--warm);border-radius:18px;border:1px solid var(--line);padding:18px;width:100%;box-shadow:0 8px 32px rgba(44,36,22,0.12);transition:transform 0.3s,opacity 0.3s;}
+.swipe-card.leaving-right{transform:translateX(120%) rotate(15deg);opacity:0;}
+.swipe-card.leaving-left{transform:translateX(-120%) rotate(-15deg);opacity:0;}
+.swipe-card-type{font-size:10px;font-weight:500;padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:9px;}
+.swipe-card-name{font-family:'Playfair Display',serif;font-size:19px;color:var(--dark);margin-bottom:7px;}
+.swipe-card-desc{font-size:12px;color:var(--mid);line-height:1.6;margin-bottom:10px;}
+.swipe-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;}
+.swipe-card-tag{font-size:10px;background:rgba(74,112,80,0.1);color:var(--sage-dark);padding:2px 7px;border-radius:4px;}
+.swipe-card-tag.keto{background:var(--keto-light);color:var(--keto);}
+.swipe-card-zutaten{font-size:11px;color:var(--mid);line-height:1.7;background:rgba(74,112,80,0.05);padding:9px;border-radius:8px;}
+.swipe-card-zutaten strong{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--sage-dark);display:block;margin-bottom:3px;}
+.swipe-btns{display:flex;gap:18px;padding:14px 0 6px;justify-content:center;}
+.swipe-btn{width:68px;height:68px;border-radius:50%;border:none;font-size:26px;cursor:pointer;transition:transform 0.15s;box-shadow:0 4px 16px rgba(0,0,0,0.12);}
+.swipe-btn:active{transform:scale(0.9);}
+.btn-dislike{background:var(--red-light);color:var(--red);}
+.btn-like{background:rgba(74,112,80,0.12);color:var(--sage-dark);}
+.btn-like.alex{background:var(--alex-light);color:var(--alex);}
+.swipe-hint{font-size:11px;color:var(--mid);text-align:center;padding-bottom:6px;}
+.onboarding-done{text-align:center;padding:32px 20px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.onboarding-done .big-emoji{font-size:52px;margin-bottom:14px;}
+.onboarding-done h2{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:7px;}
+.onboarding-done p{font-size:12px;color:var(--mid);line-height:1.6;margin-bottom:18px;}
+.done-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%;max-width:260px;margin-bottom:18px;}
+.done-stat{padding:11px;border-radius:11px;text-align:center;}
+.done-stat.liked{background:rgba(74,112,80,0.1);}
+.done-stat.liked.alex{background:var(--alex-light);}
+.done-stat.disliked{background:var(--red-light);}
+.done-stat-num{font-size:26px;font-weight:500;}
+.done-stat.liked .done-stat-num{color:var(--sage-dark);}
+.done-stat.liked.alex .done-stat-num{color:var(--alex);}
+.done-stat.disliked .done-stat-num{color:var(--red);}
+.done-stat-label{font-size:11px;color:var(--mid);}
+.start-btn{padding:13px 28px;background:var(--sage-dark);color:#fff;border:none;border-radius:11px;font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.start-btn.alex{background:var(--alex-mid);}
+.redo-btn{padding:9px 20px;background:transparent;color:var(--mid);border:1px solid var(--line);border-radius:9px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;margin-top:7px;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;align-items:flex-end;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--cream);border-radius:20px 20px 0 0;padding:18px 16px 32px;max-height:88vh;overflow-y:auto;width:100%;}
+.modal-handle{width:40px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 14px;}
+.modal-title{font-family:'Playfair Display',serif;font-size:19px;margin-bottom:5px;}
+.modal-section{margin-bottom:12px;}
+.modal-section-title{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--sage-dark);margin-bottom:6px;}
+.modal-section-title.alex{color:var(--alex-mid);}
+.modal-desc{font-size:12px;color:var(--mid);line-height:1.7;}
+.ingredient-list{display:flex;flex-direction:column;gap:4px;}
+.ingredient{display:flex;align-items:center;gap:7px;font-size:12px;}
+.ingredient::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;}
+.modal-prep{background:rgba(74,112,80,0.08);border-radius:9px;padding:11px;font-size:12px;color:var(--mid);line-height:1.7;}
+.modal-keto-box{background:var(--keto-light);border-radius:9px;padding:11px;margin-top:8px;}
+.modal-keto-title{font-size:10px;font-weight:500;color:var(--keto);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;}
+.modal-keto-text{font-size:12px;color:#5a3010;line-height:1.6;}
+.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px;}
+.modal-btn{padding:12px;border:none;border-radius:9px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.modal-btn-like{background:rgba(74,112,80,0.1);color:var(--sage-dark);}
+.modal-btn-like.active{background:var(--sage-dark);color:#fff;}
+.modal-btn-like.alex-like{background:var(--alex-light);color:var(--alex);}
+.modal-btn-like.alex-like.active{background:var(--alex-mid);color:#fff;}
+.modal-btn-dislike{background:var(--red-light);color:var(--red);}
+.modal-btn-dislike.active{background:var(--red);color:#fff;}
+.add-to-plan-btn{width:100%;padding:13px;background:var(--sage-dark);color:#fff;border:none;border-radius:11px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;margin-top:7px;}
+.add-to-plan-btn.alex-btn{background:var(--alex-mid);}
+.add-to-plan-btn:disabled{background:var(--line);color:var(--mid);cursor:not-allowed;}
+
+/* WOCHENPLANER */
+.week-planner{padding:8px 16px;display:flex;flex-direction:column;gap:7px;}
+.day-planner{background:var(--warm);border:1px solid var(--line);border-radius:13px;overflow:hidden;}
+.day-planner-header{padding:10px 13px;display:flex;justify-content:space-between;align-items:center;}
+.day-planner-header.mon{background:linear-gradient(135deg,#e8f4e8,#d4ebd4);}
+.day-planner-header.tue{background:linear-gradient(135deg,#fdf0e4,#f5dfc4);}
+.day-planner-header.wed{background:linear-gradient(135deg,#e8f0f8,#d0e4f0);}
+.day-planner-header.thu{background:linear-gradient(135deg,#f4e8f0,#e8d0e4);}
+.day-planner-header.fri{background:linear-gradient(135deg,#f0f4e0,#e0eccc);}
+.day-planner-header.sat{background:linear-gradient(135deg,#fce8e0,#f4d0c4);}
+.day-planner-header.sun{background:linear-gradient(135deg,#fef8e4,#f8eccc);}
+.day-planner-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;}
+.day-planner-count{font-size:10px;color:var(--mid);}
+.day-meals{padding:7px 11px 9px;display:flex;flex-direction:column;gap:4px;}
+.day-meal-slot{display:flex;align-items:center;gap:6px;padding:7px 8px;background:var(--cream);border-radius:7px;border:1px dashed var(--line);cursor:pointer;}
+.day-meal-slot.filled{background:rgba(74,112,80,0.06);border:1px solid rgba(74,112,80,0.2);cursor:default;}
+.day-meal-slot.filled.alex-filled{background:rgba(26,58,92,0.06);border-color:rgba(26,58,92,0.2);}
+.day-meal-slot.filled.both-filled{background:rgba(107,91,62,0.06);border-color:rgba(107,91,62,0.2);}
+.slot-type{font-size:10px;font-weight:500;color:var(--mid);min-width:56px;}
+.slot-name{font-size:11px;color:var(--dark);flex:1;line-height:1.3;}
+.slot-who{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;white-space:nowrap;}
+.slot-who.ina{background:var(--ina-light);color:var(--ina);}
+.slot-who.alex{background:var(--alex-light);color:var(--alex);}
+.slot-who.both{background:var(--both-light);color:var(--both);}
+.slot-empty{font-size:11px;color:rgba(200,190,180,0.7);font-style:italic;}
+.slot-remove{font-size:14px;color:var(--mid);background:none;border:none;cursor:pointer;padding:0 1px;}
+
+/* SLOT PICKER */
+.slot-picker{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:flex-end;}
+.slot-picker.open{display:flex;}
+.slot-picker-inner{background:var(--cream);border-radius:20px 20px 0 0;padding:16px 16px 32px;width:100%;max-height:72vh;overflow-y:auto;}
+.slot-picker-title{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:10px;}
+.slot-picker-list{display:flex;flex-direction:column;gap:6px;}
+.slot-picker-item{padding:10px 12px;background:var(--warm);border:1px solid var(--line);border-radius:9px;cursor:pointer;}
+.slot-picker-item:active{background:rgba(74,112,80,0.1);}
+.slot-picker-item-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:2px;}
+.slot-picker-item-desc{font-size:11px;color:var(--mid);}
+.slot-picker-section{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;padding:7px 3px 3px;}
+.sp-ina{color:var(--sage-dark);}
+.sp-alex{color:var(--alex-mid);}
+.sp-both{color:var(--both);}
+.sp-red{color:var(--red);}
+.slot-picker-cancel{width:100%;padding:11px;background:var(--line);color:var(--mid);border:none;border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;margin-top:8px;}
+
+/* EINKAUF */
+.shopping-container{padding:11px 16px;}
+.shopping-empty{text-align:center;padding:40px 20px;color:var(--mid);}
+.shopping-empty .emoji{font-size:42px;margin-bottom:11px;}
+.shopping-empty p{font-size:13px;line-height:1.6;}
+.week-summary{border-radius:11px;padding:10px 13px;margin-bottom:12px;font-size:12px;line-height:1.7;}
+.week-summary.ina-summary{background:var(--ina-light);color:var(--dark);}
+.week-summary.alex-summary{background:var(--alex-light);color:var(--dark);}
+.week-summary.both-summary{background:var(--both-light);color:var(--dark);}
+.shopping-category{margin-bottom:13px;}
+.shopping-cat-title{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;padding-left:3px;}
+.cat-ina{color:var(--sage-dark);}
+.cat-alex{color:var(--alex-mid);}
+.cat-both{color:var(--both);}
+.shopping-item{display:flex;align-items:center;gap:9px;padding:8px 10px;background:var(--warm);border:1px solid var(--line);border-radius:7px;margin-bottom:5px;cursor:pointer;}
+.shopping-item.checked{opacity:0.4;}
+.shopping-item.checked .shopping-item-name{text-decoration:line-through;}
+.shopping-checkbox{width:19px;height:19px;border-radius:50%;border:2px solid var(--sage);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.shopping-item.checked .shopping-checkbox{background:var(--sage);border-color:var(--sage);}
+.shopping-item.checked .shopping-checkbox::after{content:'✓';color:#fff;font-size:10px;}
+.shopping-item-name{font-size:12px;color:var(--dark);flex:1;}
+.shopping-item-amount{font-size:11px;color:var(--mid);}
+.clear-btn{width:100%;padding:11px;background:var(--red);color:#fff;border:none;border-radius:9px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;margin-top:7px;}
+.empty-section{text-align:center;padding:18px;color:var(--mid);font-size:12px;}
+
+/* INFO BOX */
+.info-box{margin:12px 16px 0;padding:11px 13px;border-radius:10px;font-size:12px;line-height:1.6;}
+.info-box.ina{background:var(--ina-light);color:var(--dark);border-left:3px solid var(--sage-dark);}
+.info-box.alex{background:var(--alex-light);color:var(--dark);border-left:3px solid var(--alex-mid);}
+.info-box.both{background:var(--both-light);color:var(--dark);border-left:3px solid var(--both);}
+</style>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCztPmShJyELZjPy0t4_TYxd7ymCdfAZ4",
+      authDomain: "ina-alex-ernaehrung.firebaseapp.com",
+      projectId: "ina-alex-ernaehrung",
+      storageBucket: "ina-alex-ernaehrung.firebasestorage.app",
+      messagingSenderId: "277671893545",
+      appId: "1:277671893545:web:5f303f45efb1521b9f1a38"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // =====================
+    // FIREBASE SYNC
+    // =====================
+    const DOC_ID = "shared-data";
+    const COLL = "ernaehrung";
+    let isSaving = false;
+    let syncStatus = document.getElementById('sync-status');
+
+    function showSyncStatus(msg, color) {
+      if(!syncStatus) syncStatus = document.getElementById('sync-status');
+      if(syncStatus) {
+        syncStatus.textContent = msg;
+        syncStatus.style.background = color;
+        syncStatus.style.display = 'flex';
+        if(color === '#4a7050') setTimeout(()=>{ syncStatus.style.display='none'; }, 2000);
+      }
+    }
+
+    async function saveToFirebase() {
+      if(isSaving) return;
+      isSaving = true;
+      showSyncStatus('⏫ Wird gespeichert...', '#c9a84c');
+      try {
+        const data = {
+          prefsIna: window._prefsIna || {},
+          prefsAlex: window._prefsAlex || {},
+          wochenplanIna: JSON.parse(JSON.stringify(window._wochenplanIna || {})),
+          wochenplanAlex: JSON.parse(JSON.stringify(window._wochenplanAlex || {})),
+          updatedAt: Date.now()
+        };
+        // Strip recipe objects to just IDs for storage
+        ['wochenplanIna','wochenplanAlex'].forEach(key => {
+          Object.keys(data[key]).forEach(tag => {
+            ['fruehstueck','snack','mittag','abend'].forEach(slot => {
+              if(data[key][tag][slot]) {
+                data[key][tag][slot] = { id: data[key][tag][slot].id };
+              }
+            });
+          });
+        });
+        await setDoc(doc(db, COLL, DOC_ID), data);
+        showSyncStatus('✓ Gespeichert & synchronisiert', '#4a7050');
+      } catch(e) {
+        showSyncStatus('⚠️ Fehler beim Speichern', '#b03030');
+        console.error(e);
+      }
+      isSaving = false;
+    }
+
+    function restoreFromData(data) {
+      if(!data) return;
+      if(data.prefsIna) window._prefsIna = data.prefsIna;
+      if(data.prefsAlex) window._prefsAlex = data.prefsAlex;
+      // Restore full recipe objects from IDs
+      ['wochenplanIna','wochenplanAlex'].forEach(key => {
+        const planKey = key === 'wochenplanIna' ? '_wochenplanIna' : '_wochenplanAlex';
+        if(data[key]) {
+          const plan = data[key];
+          window[planKey] = {};
+          Object.keys(plan).forEach(tag => {
+            window[planKey][tag] = {};
+            ['fruehstueck','snack','mittag','abend'].forEach(slot => {
+              if(plan[tag][slot] && plan[tag][slot].id) {
+                const rezept = (window.alleRezepte||[]).find(r=>r.id===plan[tag][slot].id);
+                window[planKey][tag][slot] = rezept || null;
+              } else {
+                window[planKey][tag][slot] = null;
+              }
+            });
+          });
+        }
+      });
+    }
+
+    // Listen for real-time changes
+    onSnapshot(doc(db, COLL, DOC_ID), (snapshot) => {
+      if(snapshot.exists()) {
+        const data = snapshot.data();
+        restoreFromData(data);
+        showSyncStatus('🔄 Aktualisiert', '#2d5f8a');
+        // Re-render current screen
+        const activeScreen = document.querySelector('.screen.active')?.id?.replace('screen-','');
+        if(activeScreen && window['render'+activeScreen.charAt(0).toUpperCase()+activeScreen.slice(1)]) {
+          window['render'+activeScreen.charAt(0).toUpperCase()+activeScreen.slice(1)]();
+        }
+      }
+    });
+
+    // Load initial data
+    getDoc(doc(db, COLL, DOC_ID)).then(snapshot => {
+      if(snapshot.exists()) {
+        restoreFromData(snapshot.data());
+        showSyncStatus('✓ Daten geladen', '#4a7050');
+        window.renderRezepte && window.renderRezepte();
+        window.renderPlaner && window.renderPlaner();
+      } else {
+        showSyncStatus('✓ Bereit — neue Daten', '#4a7050');
+      }
+    });
+
+    // Expose save function globally
+    window.saveToFirebase = saveToFirebase;
+  </script>
+</head>
+<body>
+
+<!-- PROFILE BAR -->
+<div class="profile-bar">
+  <span class="profile-label">Profil:</span>
+  <button class="profile-btn ina active" onclick="setProfile('ina')">🌿 Ina</button>
+  <button class="profile-btn alex" onclick="setProfile('alex')">💪 Alex</button>
+  <button class="profile-btn both" onclick="setProfile('both')">👫 Beide</button>
+</div>
+
+<!-- NAV -->
+
+<div id="sync-status" style="display:none;align-items:center;justify-content:center;padding:6px;font-size:11px;color:#fff;font-family:'DM Sans',sans-serif;transition:all 0.3s;"></div>
+<nav class="nav" id="main-nav">
+  <button class="nav-btn" onclick="showScreen('entdecken')" id="nav-entdecken"><span class="icon">✨</span><span>Entdecken</span></button>
+  <button class="nav-btn active" onclick="showScreen('rezepte')" id="nav-rezepte"><span class="icon">🍽️</span><span>Rezepte</span></button>
+  <button class="nav-btn" onclick="showScreen('planer')" id="nav-planer"><span class="icon">📅</span><span>Wochenplan</span></button>
+  <button class="nav-btn" onclick="showScreen('einkauf')" id="nav-einkauf"><span class="icon">🛒</span><span>Einkauf</span></button>
+</nav>
+
+<!-- SCREENS -->
+<div class="screen" id="screen-entdecken"></div>
+<div class="screen active" id="screen-rezepte"></div>
+<div class="screen" id="screen-planer"></div>
+<div class="screen" id="screen-einkauf"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal"><div class="modal-handle"></div><div id="modal-body"></div></div>
+</div>
+
+<!-- SLOT PICKER -->
+<div class="slot-picker" id="slot-picker" onclick="closeSlotPicker(event)">
+  <div class="slot-picker-inner">
+    <div class="slot-picker-title" id="slot-picker-title">Rezept wählen</div>
+    <div class="slot-picker-list" id="slot-picker-list"></div>
+    <button class="slot-picker-cancel" onclick="document.getElementById('slot-picker').classList.remove('open')">Abbrechen</button>
+  </div>
+</div>
+
+<script>
+// =====================
+// REZEPT DATEN
+// =====================
+const alleRezepte = [
+  // Für jeden Rezept: ketoOk = true wenn <5g KH, ketoTipp = Anpassung für Alex
+  // FRÜHSTÜCK (nur Ina — Alex hat andere Frühstücke)
+  {id:1,type:'fruehstueck',fuer:'ina',name:'Chia-Joghurt mit Beeren',desc:'Cremiger Joghurt mit Chiasamen, Inulin und Beeren',tags:['Akkermansia','Fermentiert','Oxalatarm'],ketoOk:false,ketoTipp:null,zutaten:['200g Vollfett-Joghurt 3,5%','2 EL Chiasamen','1 TL Inulinpulver','Heidelbeeren & Himbeeren','Zimt'],zubereitung:'Joghurt ins Glas, Chiasamen & Inulin einrühren, Beeren drauf, Deckel zu.',prep:'⏱ 3 Min. abends',einkauf:{'Milchprodukte':['Vollfett-Joghurt 3,5%'],'Obst & Beeren':['Heidelbeeren','Himbeeren'],'Vorrat':['Chiasamen','Inulinpulver']}},
+  {id:2,type:'fruehstueck',fuer:'ina',name:'Avocado-Ei-Box',desc:'Hartgekochte Eier mit Avocado und Gurke — proteinreich, kein Oxalat',tags:['Oxalatarm','Proteinreich','Schnell'],ketoOk:true,ketoTipp:'Für Alex: extra Butter oder Olivenöl dazu, mehr Eier',zutaten:['2 Eier (hartgekocht)','½ Avocado','½ Gurke','Meersalz & Zitronensaft','1 Scheibe Bergkäse'],zubereitung:'Eier kochen, Avocado halbieren, Gurke schneiden. Morgens alles in Box.',prep:'⏱ 5 Min.',einkauf:{'Protein':['Bio-Eier'],'Gemüse':['Avocados','Gurken'],'Milchprodukte':['Bergkäse']}},
+  {id:3,type:'fruehstueck',fuer:'ina',name:'Räucherlachs-Frischkäse-Box',desc:'Omega-3 pur — Räucherlachs mit Kräuter-Frischkäse',tags:['Omega-3','Oxalatarm','Herzschutz'],ketoOk:true,ketoTipp:'Für Alex: mehr Lachs, extra Frischkäse, keine Einschränkung',zutaten:['100g Räucherlachs MSC','Frischkäse Doppelrahm','½ Gurke','Frischer Dill','Zitronensaft'],zubereitung:'Frischkäse mit Dill & Zitrone verrühren. Alles in Box.',prep:'⏱ 5 Min.',einkauf:{'Fisch':['Räucherlachs MSC'],'Milchprodukte':['Frischkäse Doppelrahm'],'Gemüse':['Gurken']}},
+  {id:4,type:'fruehstueck',fuer:'ina',name:'Joghurt mit Birne & Leinsamen',desc:'Pektin aus der Birne füttert Akkermansia direkt',tags:['Akkermansia','Präbiotisch','Fermentiert'],ketoOk:false,ketoTipp:null,zutaten:['200g Vollfett-Joghurt','½ reife Birne','1 EL Leinsamen','1 TL Inulinpulver','Zimt'],zubereitung:'Birne würfeln, mit Joghurt & Leinsamen ins Glas schichten.',prep:'⏱ 3 Min.',einkauf:{'Milchprodukte':['Vollfett-Joghurt'],'Obst & Beeren':['Birnen'],'Vorrat':['Leinsamen','Inulinpulver']}},
+  {id:5,type:'fruehstueck',fuer:'ina',name:'Joghurt-Beeren mit Walnüssen',desc:'Vollfett-Joghurt mit Brombeeren und Walnüssen',tags:['Herzschutz','Omega-3','Fermentiert'],ketoOk:false,ketoTipp:null,zutaten:['200g Vollfett-Joghurt','Handvoll Brombeeren','4-5 Walnusshälften','1 TL Zimt'],zubereitung:'Alles schichten, Glas mitnehmen.',prep:'⏱ 3 Min.',einkauf:{'Milchprodukte':['Vollfett-Joghurt'],'Obst & Beeren':['Brombeeren'],'Vorrat':['Walnüsse']}},
+  {id:6,type:'fruehstueck',fuer:'ina',name:'Hüttenkäse mit Gurke & Kräutern',desc:'Leichtes Frühstück mit viel Protein',tags:['Proteinreich','Leicht','Oxalatarm'],ketoOk:true,ketoTipp:'Für Alex: extra Olivenöl drüber, mehr Käse',zutaten:['150g Hüttenkäse Vollfett','½ Gurke','Schnittlauch & Dill','Olivenöl Drizzle'],zubereitung:'Hüttenkäse würzen, Gurke dazu.',prep:'⏱ 4 Min.',einkauf:{'Milchprodukte':['Hüttenkäse Vollfett'],'Gemüse':['Gurken'],'Kräuter':['Schnittlauch','Dill']}},
+  // ALEX FRÜHSTÜCK (Keto)
+  {id:50,type:'fruehstueck',fuer:'alex',name:'Spiegeleier in Butter mit Speck',desc:'Klassisches Keto-Frühstück — Eier in Butter, knuspriger Speck',tags:['Keto ✓','Proteinreich','Sättigend'],ketoOk:true,ketoTipp:null,zutaten:['3-4 Bio-Eier','Butter','2-3 Scheiben Speck (ohne Nitrit wenn möglich)','Meersalz & Pfeffer'],zubereitung:'Butter in Pfanne erhitzen. Speck knusprig braten. Eier daneben aufschlagen.',prep:'⏱ 8 Min.',einkauf:{'Protein':['Bio-Eier','Speck ohne Nitrit'],'Milchprodukte':['Butter']}},
+  {id:51,type:'fruehstueck',fuer:'alex',name:'Lachs-Rührei mit Avocado',desc:'Omega-3 Keto-Frühstück — cremiges Rührei mit Räucherlachs',tags:['Keto ✓','Omega-3','Herzschutz'],ketoOk:true,ketoTipp:null,zutaten:['3 Bio-Eier','50g Räucherlachs MSC','½ Avocado','Butter','Frischer Dill','Meersalz & Pfeffer'],zubereitung:'Rührei in Butter, Lachs kurz vor Ende dazu. Avocado daneben.',prep:'⏱ 8 Min.',einkauf:{'Protein':['Bio-Eier'],'Fisch':['Räucherlachs MSC'],'Gemüse':['Avocados'],'Milchprodukte':['Butter']}},
+  {id:52,type:'fruehstueck',fuer:'alex',name:'Käse-Omelette mit Kräutern',desc:'Proteinreiches Keto-Omelette mit viel Käse und frischen Kräutern',tags:['Keto ✓','Proteinreich','Schnell'],ketoOk:true,ketoTipp:null,zutaten:['3 Bio-Eier','50g Bergkäse gerieben','Butter','Schnittlauch & Petersilie','Meersalz & Pfeffer'],zubereitung:'Eier verquirlen, in Butter, Käse drauf, falten.',prep:'⏱ 7 Min.',einkauf:{'Protein':['Bio-Eier'],'Milchprodukte':['Bergkäse','Butter'],'Kräuter':['Schnittlauch','Petersilie']}},
+  {id:53,type:'fruehstueck',fuer:'alex',name:'Bulletproof Coffee + Eier',desc:'Keto-Kaffee mit Butter & MCT + hartgekochte Eier',tags:['Keto ✓','Energie','Intermittent Fasting'],ketoOk:true,ketoTipp:null,zutaten:['2 Tassen Kaffee schwarz','1 EL Butter (Weidebutter)','1 EL Kokosöl','3 hartgekochte Eier'],zubereitung:'Kaffee + Butter + Kokosöl in Mixer (oder Milchschäumer). Eier dazu.',prep:'⏱ 5 Min.',einkauf:{'Vorrat':['Kokosöl nativ'],'Milchprodukte':['Weidebutter'],'Protein':['Bio-Eier']}},
+  // MITTAG (nur Ina — Alex Mittag meist Reste vom Abend)
+  {id:9,type:'mittag',fuer:'ina',name:'Linsen-Paprika-Salat mit Feta',desc:'Präbiotisch & sättigend — rote Linsen mit Feta',tags:['Butyratbildner','Präbiotisch','Vegetarisch'],ketoOk:false,ketoTipp:null,zutaten:['150g rote Linsen (gekocht)','Bunte Paprika','½ Gurke','Rote Zwiebel','80g Feta','Olivenöl + Zitrone'],zubereitung:'Linsen kochen, abkühlen. Gemüse würfeln. Feta zerbröckeln. Dressing separat.',prep:'⏱ 5 Min.',einkauf:{'Vorrat':['Rote Linsen'],'Gemüse':['Paprika bunt','Gurken','Rote Zwiebeln'],'Milchprodukte':['Feta']}},
+  {id:10,type:'mittag',fuer:'ina',name:'Hähnchen-Gurken-Bowl',desc:'Vorgebratenes Hähnchen mit Joghurt-Knoblauch-Dip',tags:['Proteinreich','Oxalatarm','Schnell'],ketoOk:true,ketoTipp:null,zutaten:['150g Bio-Hähnchenbrust','1 Gurke','Bunte Paprika','Joghurt-Knoblauch-Dip','Olivenöl'],zubereitung:'Hähnchen vom Abend mehr kochen. Kalt in Box.',prep:'⏱ 2 Min. (Reste)',einkauf:{'Protein':['Bio-Hähnchenbrust'],'Gemüse':['Gurken','Paprika bunt']}},
+  {id:11,type:'mittag',fuer:'ina',name:'Thunfisch auf Linsen-Salat',desc:'Omega-3 trifft Butyratbildner',tags:['Omega-3','Butyratbildner','Schnell'],ketoOk:false,ketoTipp:null,zutaten:['150g rote Linsen (gekocht)','1 Dose Thunfisch in eigenem Saft','Gurke & Paprika','Olivenöl + Zitrone'],zubereitung:'Linsen-Rest aus Kühlschrank. Thunfisch drauf. 2 Min.',prep:'⏱ 2 Min.',einkauf:{'Fisch':['Thunfisch in eigenem Saft Dose'],'Vorrat':['Rote Linsen']}},
+  {id:12,type:'mittag',fuer:'ina',name:'Räucherlachs-Ei-Box',desc:'Räucherlachs mit Frischkäse und hartgekochten Eiern',tags:['Omega-3','Proteinreich','Schnell'],ketoOk:true,ketoTipp:null,zutaten:['100g Räucherlachs','Frischkäse Doppelrahm','2 hartgekochte Eier','Gurkenscheiben'],zubereitung:'Eier mitkochen. Alles in Box.',prep:'⏱ 5 Min.',einkauf:{'Fisch':['Räucherlachs MSC'],'Protein':['Bio-Eier'],'Milchprodukte':['Frischkäse Doppelrahm'],'Gemüse':['Gurken']}},
+  {id:13,type:'mittag',fuer:'ina',name:'Garnelen-Gurken-Bowl',desc:'Knoblauch-Garnelen kalt mit Joghurt-Zitronen-Dip',tags:['Proteinreich','Oxalatarm','Lecker'],ketoOk:true,ketoTipp:null,zutaten:['150g Garnelen MSC','1 Gurke','Bunte Paprika','Joghurt-Zitronen-Dip','Olivenöl & Knoblauch'],zubereitung:'Garnelen abends 3 Min. anbraten. Abkühlen. Mit Gemüse in Box.',prep:'⏱ 8 Min.',einkauf:{'Fisch':['Garnelen MSC 200g'],'Gemüse':['Gurken','Paprika bunt']}},
+  {id:14,type:'mittag',fuer:'ina',name:'Hüttenkäse-Eiersalat mit Lauchzwiebeln',desc:'Inas Liebling — Hüttenkäse mit Eiersalat',tags:['Proteinreich','Präbiotisch','Oxalatarm'],ketoOk:true,ketoTipp:null,zutaten:['150g Hüttenkäse Vollfett','3 hartgekochte Eier','Lauchzwiebeln','Olivenöl-Mayo','Roggen-Knäckebrot optional'],zubereitung:'Eier würfeln. Mit Hüttenkäse & Lauchzwiebeln mischen.',prep:'⏱ 7 Min.',einkauf:{'Milchprodukte':['Hüttenkäse Vollfett'],'Protein':['Bio-Eier'],'Gemüse':['Lauchzwiebeln']}},
+  {id:15,type:'mittag',fuer:'ina',name:'Avocado-Thunfisch-Box',desc:'Cremige Avocado gefüllt mit Thunfisch',tags:['Omega-3','Herzschutz','Sättigend'],ketoOk:true,ketoTipp:null,zutaten:['1 Avocado','1 Dose Thunfisch in eigenem Saft','Zitronensaft','Rote Zwiebel','Petersilie'],zubereitung:'Avocado halbieren. Thunfisch mit Zwiebel füllen.',prep:'⏱ 5 Min.',einkauf:{'Fisch':['Thunfisch Dose'],'Gemüse':['Avocados','Rote Zwiebeln']}},
+  // ABEND (für beide — mit Keto-Anpassungen)
+  {id:18,type:'abend',fuer:'beide',name:'Ofenlachs mit Zucchini & Sauerkraut',desc:'Klassisch — Lachs im Ofen, Zucchini in Olivenöl, Sauerkraut',tags:['Omega-3','Fermentiert','Herzschutz'],ketoOk:true,ketoTipp:'Alex: extra Butter über den Lachs, großzügig Olivenöl zu Zucchini — perfekt Keto',zutaten:['180g Lachsfilet pro Person','Zitrone & Dill','2 Zucchini','3 Knoblauchzehen','Olivenöl','2 EL Sauerkraut (Ina)'],zubereitung:'Lachs mit Zitrone & Dill in Ofen (200°, 20 Min.). Zucchini in Olivenöl mit Knoblauch.',prep:'⏱ 25 Min.',einkauf:{'Fisch':['Lachs 360g (2 Portionen)'],'Gemüse':['Zucchini','Knoblauch'],'Vorrat':['Sauerkraut Glas']}},
+  {id:19,type:'abend',fuer:'beide',name:'Hähnchenbrust mit Paprika & Lauch',desc:'Geflügel — mit präbiotischem Lauch und bunter Paprika',tags:['Bio-Geflügel','Präbiotisch','Schnell'],ketoOk:true,ketoTipp:'Alex: Hähnchen mit mehr Butter braten, extra Olivenöl drüber — vollständig Keto',zutaten:['200g Bio-Hähnchenbrust pro Person','Bunte Paprika','1 Lauch','4 Knoblauchzehen','Olivenöl','Thymian'],zubereitung:'Hähnchen in Olivenöl anbraten. Lauch & Paprika dazu. 20 Min.',prep:'⏱ 20 Min.',einkauf:{'Protein':['Bio-Hähnchenbrust 400g'],'Gemüse':['Paprika bunt','Lauch','Knoblauch']}},
+  {id:20,type:'abend',fuer:'beide',name:'Blumenkohlsuppe mit Ingwer & Kokos',desc:'Entzündungshemmend — Kurkuma, Kokos und Ingwer',tags:['Entzündungshemmend','Herzschutz','Keto ✓'],ketoOk:true,ketoTipp:'Alex: extra Kokosöl oder Butter einrühren, großzügig — perfekt Keto!',zutaten:['1 großer Blumenkohl','1 Dose Kokosmilch','Ingwer frisch','1 TL Kurkuma','3 Knoblauchzehen','Olivenöl','Kürbiskerne'],zubereitung:'Blumenkohl & Knoblauch anschwitzen. Kokosmilch, Ingwer & Kurkuma. 15 Min. Pürieren.',prep:'⏱ 25 Min.',einkauf:{'Gemüse':['Blumenkohl','Ingwer frisch','Knoblauch'],'Vorrat':['Kokosmilch Dose','Kurkuma','Kürbiskerne']}},
+  {id:21,type:'abend',fuer:'beide',name:'Forelle mit Brokkoli & Knoblauch',desc:'Omega-3 mit oxalatarmem Brokkoli und Kefir-Dip',tags:['Omega-3','Oxalatarm','Fermentiert'],ketoOk:true,ketoTipp:'Alex: Forelle in Butter statt Olivenöl, extra Butter über Brokkoli — Keto perfekt',zutaten:['1 Forelle pro Person','Zitronenbutter','1 Brokkoli','4 Knoblauchzehen','Chili','Olivenöl'],zubereitung:'Forelle in Zitronenbutter braten. Brokkoli in Olivenöl mit Knoblauch & Chili.',prep:'⏱ 20 Min.',einkauf:{'Fisch':['Forelle 2×'],'Gemüse':['Brokkoli','Knoblauch'],'Milchprodukte':['Butter']}},
+  {id:22,type:'abend',fuer:'beide',name:'Kimchi-Hähnchen-Pfanne',desc:'Stark fermentiert — Darm-Boost mit Kimchi',tags:['Fermentiert','Mikrobiom','Schnell'],ketoOk:true,ketoTipp:'Alex: extra Kokosöl zum Braten, mehr Hähnchen, Sesam großzügig — vollständig Keto',zutaten:['200g Bio-Hähnchenbrust pro Person','Zucchini','Paprika','3 EL Kimchi','Tamari','Sesam','Frühlingszwiebeln'],zubereitung:'Hähnchen in Streifen. Mit Gemüse in Pfanne. Kimchi & Tamari dazu. 15 Min.',prep:'⏱ 15 Min.',einkauf:{'Protein':['Bio-Hähnchenbrust 400g'],'Gemüse':['Zucchini','Paprika bunt','Frühlingszwiebeln'],'Vorrat':['Kimchi','Tamari','Sesam']}},
+  {id:23,type:'abend',fuer:'beide',name:'Shakshuka mit Ziegenfrischkäse',desc:'Eier pochiert in Tomatensauce — präbiotisch',tags:['Präbiotisch','Lycopin','Vegetarisch'],ketoOk:true,ketoTipp:'Alex: mehr Eier (4-5), extra Olivenöl, kein Problem mit Keto',zutaten:['4 Bio-Eier','Tomatendose','Bunte Paprika','1 Zwiebel','3 Knoblauchzehen','Kreuzkümmel','Ziegenfrischkäse'],zubereitung:'Zwiebeln & Paprika anschwitzen. Tomaten & Gewürze. Eier einlegen. 5 Min. pochieren.',prep:'⏱ 20 Min.',einkauf:{'Protein':['Bio-Eier 6×'],'Gemüse':['Paprika bunt','Zwiebeln','Knoblauch'],'Vorrat':['Tomaten Dose','Kreuzkümmel'],'Milchprodukte':['Ziegenfrischkäse']}},
+  {id:24,type:'abend',fuer:'beide',name:'Hähnchen-Shawarma Bowl',desc:'Orientalisch gewürzt mit Joghurtsauce und Granatapfelkernen',tags:['Herzschutz','Präbiotisch','Geschmacksbombe'],ketoOk:true,ketoTipp:'Alex: ohne Granatapfel, extra Joghurt-Sauce, mehr Hähnchen — vollständig Keto',zutaten:['200g Bio-Hähnchenbrust pro Person','Kreuzkümmel, Kurkuma, Knoblauch','Gurke & Paprika','Joghurt-Sauce','Granatapfelkerne (Ina)'],zubereitung:'Hähnchen marinieren & anbraten. Gemüse würfeln. Joghurtsauce: Joghurt + Knoblauch + Zitrone.',prep:'⏱ 25 Min.',einkauf:{'Protein':['Bio-Hähnchenbrust 400g'],'Gemüse':['Gurken','Paprika','Rote Zwiebeln'],'Milchprodukte':['Vollfett-Joghurt'],'Obst & Beeren':['Granatapfel']}},
+  {id:25,type:'abend',fuer:'beide',name:'Hähnchen-Braten mit Wurzelgemüse',desc:'Macht sich von selbst — Hähnchen mit Möhren, Pastinaken & Fenchel',tags:['Bio-Geflügel','Präbiotisch','Meal Prep'],ketoOk:true,ketoTipp:'Alex: extra Butter über alles vor dem Braten, Pastinaken nur wenig — grenzwertig Keto, große Portion Hähnchen',zutaten:['4 Bio-Hähnchenschenkel','Möhren','Pastinaken (wenig für Alex)','Fenchel','Knoblauch','Rosmarin & Thymian','Olivenöl & Butter'],zubereitung:'Alles in Bräter. 45 Min. bei 200°. Rest = Mittagessen nächsten Tag!',prep:'⏱ 10 Min. + 45 Min. Ofen',einkauf:{'Protein':['Bio-Hähnchenschenkel 4×'],'Gemüse':['Möhren','Pastinaken','Fenchel','Knoblauch']}},
+  {id:26,type:'abend',fuer:'beide',name:'Hähnchen-Zucchini-Pfanne mit Kräutern',desc:'Einfach & aromatisch — Thymian, Rosmarin und Knoblauch',tags:['Bio-Geflügel','Oxalatarm','Keto ✓'],ketoOk:true,ketoTipp:'Alex: großzügig Butter statt nur Olivenöl, extra Käse drüber — perfekt Keto',zutaten:['200g Bio-Hähnchenbrust pro Person','2 Zucchini','Paprika','4 Knoblauchzehen','Thymian & Rosmarin','Olivenöl & Butter'],zubereitung:'Hähnchen in Butter & Olivenöl. Zucchini & Paprika dazu. 20 Min.',prep:'⏱ 20 Min.',einkauf:{'Protein':['Bio-Hähnchenbrust 400g'],'Gemüse':['Zucchini','Paprika','Knoblauch'],'Milchprodukte':['Butter']}},
+  {id:27,type:'abend',fuer:'beide',name:'Lachs-Tataki mit Gurken-Avocado',desc:'Kurz scharf angebraten — mit Sesam und Ingwer',tags:['Omega-3','Herzschutz','Keto ✓'],ketoOk:true,ketoTipp:'Alex: extra Avocado, Sesamöl großzügig — vollständig Keto',zutaten:['200g Lachsfilet pro Person','Gurke & Avocado','Sesamöl & Reisessig','Frischer Ingwer','Koriander','Tamari'],zubereitung:'Lachs kurz scharf anbraten (2 Min. je Seite). Gurken-Avocado-Salat mit Sesamöl.',prep:'⏱ 15 Min.',einkauf:{'Fisch':['Lachs 400g'],'Gemüse':['Gurken','Avocados','Ingwer frisch'],'Öle & Würzen':['Sesamöl','Tamari']}},
+  {id:28,type:'abend',fuer:'beide',name:'Garnelen-Pfanne mit Paprika & Knoblauch',desc:'Schnell & lecker — Knoblauch-Garnelen mit bunter Paprika',tags:['Proteinreich','Oxalatarm','Keto ✓'],ketoOk:true,ketoTipp:'Alex: in Butter braten statt Olivenöl, extra Butter am Ende — perfekt Keto',zutaten:['200g Garnelen MSC pro Person','Bunte Paprika','4 Knoblauchzehen','Olivenöl & Butter','Zitronensaft','Frische Petersilie','Chili'],zubereitung:'Garnelen in heißem Öl mit Knoblauch 3-4 Min. Paprika dazu. Zitrone & Petersilie.',prep:'⏱ 12 Min.',einkauf:{'Fisch':['Garnelen MSC 400g'],'Gemüse':['Paprika bunt','Knoblauch'],'Milchprodukte':['Butter']}},
+  {id:38,type:'abend',fuer:'beide',name:'Kokos-Garnelen mit Spitzpaprika & Chili',desc:'Inas Rezept — cremige Kokosmilch mit White Tiger Garnelen',tags:['Proteinreich','Herzschutz','Inas Rezept','Keto ✓'],ketoOk:true,ketoTipp:'Alex: vollständig Keto! Extra Kokosöl in die Sauce, mehr Garnelen — perfekt',zutaten:['200g White Tiger Garnelen pro Person','1 Dose Kokosmilch vollfett','2 Spitzpaprika','1-2 Chilis','4 Knoblauchzehen','2cm Ingwer','1 TL Kurkuma','½ TL Kreuzkümmel','Olivenöl','Saft 1 Limette','Koriander','Frühlingszwiebeln'],zubereitung:'1. Knoblauch & Ingwer anschwitzen. 2. Paprika & Chili braten. 3. Gewürze rösten. 4. Kokosmilch, 5 Min. köcheln. 5. Garnelen 3 Min. — sofort raus wenn rosa! 6. Limette & Koriander.',prep:'⏱ 20 Min.',einkauf:{'Fisch':['White Tiger Garnelen MSC 400g'],'Gemüse':['Spitzpaprika 2×','Chili','Knoblauch','Ingwer frisch','Frühlingszwiebeln'],'Vorrat':['Kokosmilch Dose','Kurkuma','Kreuzkümmel'],'Obst & Beeren':['Limette'],'Kräuter':['Koriander frisch']}},
+  {id:29,type:'abend',fuer:'beide',name:'Gemüsesuppe mit pochiertem Ei',desc:'Leichter Wochenabschluss — Brühe mit Lauch & Fenchel',tags:['Leicht','Darmfreundlich','Wärmend'],ketoOk:true,ketoTipp:'Alex: extra Butter in die Suppe, mehr Eier (2-3), Sahne einrühren für Cremigkeit',zutaten:['Möhren','Sellerie','Lauch','Fenchel','2 Bio-Eier pro Person','Olivenöl','Frische Kräuter'],zubereitung:'Brühe mit Gemüse kochen. Eier pochieren. Olivenöl & Kräuter.',prep:'⏱ 25 Min.',einkauf:{'Gemüse':['Möhren','Lauch','Fenchel','Sellerie'],'Protein':['Bio-Eier 6×']}},
+  // SNACKS — Ina
+  {id:31,type:'snack',fuer:'ina',name:'99% Schokolade + Bergkäse',desc:'Polyphenole aus Kakao + Calcium aus Käse — immer zusammen!',tags:['Herzschutz','Oxalat-Schutz','Täglich okay'],ketoOk:true,ketoTipp:'Alex: auch erlaubt! 99% ist Keto-kompatibel',zutaten:['2 Reihen 99% Schokolade','2 Scheiben Bergkäse'],zubereitung:'Käse & Schokolade zusammen essen — Calcium bindet Oxalat.',prep:'⏱ 0 Min.',einkauf:{'Snacks':['99% Schokolade'],'Milchprodukte':['Bergkäse']}},
+  {id:32,type:'snack',fuer:'ina',name:'Kefir-Smoothie mit Beeren',desc:'Fermentiert & voller Polyphenole — täglicher Mikrobiom-Boost',tags:['Fermentiert','Akkermansia','Polyphenole'],ketoOk:false,ketoTipp:null,zutaten:['150ml Vollfett-Kefir','Himbeeren oder Heidelbeeren','½ TL Ingwerpulver'],zubereitung:'Alles in Flasche, schütteln.',prep:'⏱ 2 Min.',einkauf:{'Milchprodukte':['Kefir Vollfett'],'Obst & Beeren':['Himbeeren oder Heidelbeeren']}},
+  {id:33,type:'snack',fuer:'ina',name:'Granatapfel + Käse + Schokolade',desc:'Drei starke Herzschutz-Zutaten',tags:['Herzschutz','Polyphenole','Calcium'],ketoOk:false,ketoTipp:null,zutaten:['3 EL Granatapfelkerne','2 Scheiben Bergkäse','2 Reihen 99% Schokolade'],zubereitung:'Käse & Schokolade zusammen essen.',prep:'⏱ 2 Min.',einkauf:{'Obst & Beeren':['Granatapfel'],'Milchprodukte':['Bergkäse'],'Snacks':['99% Schokolade']}},
+  {id:34,type:'snack',fuer:'ina',name:'Avocado mit Meersalz & Kefir',desc:'Gesunde Fette + Fermentiertes',tags:['Gesunde Fette','Fermentiert','Schnell'],ketoOk:true,ketoTipp:null,zutaten:['½ Avocado','Meersalz & Zitronensaft','150ml Kefir'],zubereitung:'Avocado halbieren, Zitrone drüber. Kefir mitnehmen.',prep:'⏱ 2 Min.',einkauf:{'Gemüse':['Avocados'],'Milchprodukte':['Kefir Vollfett']}},
+  {id:35,type:'snack',fuer:'ina',name:'Roggen-Knäckebrot mit Hüttenkäse',desc:'Sauber & sättigend — Roggen mit Hüttenkäse',tags:['Ballaststoffe','Proteinreich','Büro-tauglich'],ketoOk:false,ketoTipp:null,zutaten:['2 Scheiben Roggen-Knäckebrot','150g Hüttenkäse Vollfett','Frische Kräuter','Gurkenscheiben'],zubereitung:'Hüttenkäse würzen. Auf Knäckebrot.',prep:'⏱ 3 Min.',einkauf:{'Vorrat':['Roggen-Knäckebrot'],'Milchprodukte':['Hüttenkäse Vollfett'],'Gemüse':['Gurken']}},
+  {id:36,type:'snack',fuer:'ina',name:'Gurke mit Kräuter-Frischkäse',desc:'Frisch & leicht — Gurkenscheiben mit Frischkäse',tags:['Oxalatarm','Leicht','Schnell'],ketoOk:true,ketoTipp:null,zutaten:['1 Gurke','Frischkäse Doppelrahm','Knoblauch, Dill & Zitrone'],zubereitung:'Frischkäse würzen. Gurke schneiden.',prep:'⏱ 3 Min.',einkauf:{'Gemüse':['Gurken'],'Milchprodukte':['Frischkäse Doppelrahm']}},
+  // SNACKS — Alex (Keto)
+  {id:60,type:'snack',fuer:'alex',name:'Käse & Walnüsse',desc:'Klassischer Keto-Snack — gereifter Käse mit Walnüssen',tags:['Keto ✓','Proteinreich','Omega-3'],ketoOk:true,ketoTipp:null,zutaten:['3-4 Scheiben gereifter Käse (Bergkäse, Gouda, Parmesan)','Handvoll Walnüsse'],zubereitung:'Fertig. In Box mitnehmen.',prep:'⏱ 1 Min.',einkauf:{'Milchprodukte':['Bergkäse','Gouda'],'Vorrat':['Walnüsse']}},
+  {id:61,type:'snack',fuer:'alex',name:'99% Schokolade + Bergkäse',desc:'Keto-Snack — Polyphenole und Fett',tags:['Keto ✓','Herzschutz','Täglich okay'],ketoOk:true,ketoTipp:null,zutaten:['2-3 Reihen 99% Schokolade','2-3 Scheiben Bergkäse'],zubereitung:'Zusammen essen.',prep:'⏱ 0 Min.',einkauf:{'Snacks':['99% Schokolade'],'Milchprodukte':['Bergkäse']}},
+  {id:62,type:'snack',fuer:'alex',name:'Avocado mit Olivenöl & Salz',desc:'Gesunde Fette pur — Keto-Snack',tags:['Keto ✓','Gesunde Fette','Herzschutz'],ketoOk:true,ketoTipp:null,zutaten:['1 Avocado','Olivenöl extra vergine','Meersalz & Pfeffer','Optional: Zitrone'],zubereitung:'Avocado halbieren, Olivenöl drüber, Salz & Pfeffer.',prep:'⏱ 1 Min.',einkauf:{'Gemüse':['Avocados'],'Öle & Würzen':['Olivenöl extra vergine']}},
+  {id:63,type:'snack',fuer:'alex',name:'Hartgekochte Eier mit Butter',desc:'Einfachster Keto-Snack',tags:['Keto ✓','Proteinreich','Schnell'],ketoOk:true,ketoTipp:null,zutaten:['2-3 hartgekochte Bio-Eier','Butter','Meersalz'],zubereitung:'Eier kochen, mit Butter essen.',prep:'⏱ 10 Min.',einkauf:{'Protein':['Bio-Eier'],'Milchprodukte':['Butter']}},
+];
+
+const tage = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+const tagKlassen = ['mon','tue','wed','thu','fri','sat','sun'];
+const slots = ['fruehstueck','snack','mittag','abend'];
+const slotLabels = {fruehstueck:'🌅 Frühstück',snack:'🍫 Snack',mittag:'🥡 Mittag',abend:'🌙 Abend'};
+
+let currentProfile = 'ina'; // 'ina' | 'alex' | 'both'
+let currentFilter = 'alle';
+let prefsIna = {};
+let prefsAlex = {};
+let wochenplanIna = {};
+let wochenplanAlex = {};
+tage.forEach(t => {
+  wochenplanIna[t] = {fruehstueck:null,snack:null,mittag:null,abend:null};
+  wochenplanAlex[t] = {fruehstueck:null,snack:null,mittag:null,abend:null};
+});
+let checkedItems = {};
+let currentSlotDay = null;
+let currentSlotType = null;
+
+try {
+  const pi = localStorage.getItem('ina_prefs_v2'); if(pi) prefsIna = JSON.parse(pi);
+  const pa = localStorage.getItem('alex_prefs_v2'); if(pa) prefsAlex = JSON.parse(pa);
+  const wi = localStorage.getItem('ina_plan_v2'); if(wi) { const p=JSON.parse(wi); tage.forEach(t=>{if(p[t]) wochenplanIna[t]=p[t];}); }
+  const wa = localStorage.getItem('alex_plan_v2'); if(wa) { const p=JSON.parse(wa); tage.forEach(t=>{if(p[t]) wochenplanAlex[t]=p[t];}); }
+} catch(e){}
+
+function savePrefs() {
+  try { localStorage.setItem('ina_prefs_v2', JSON.stringify(prefsIna)); localStorage.setItem('alex_prefs_v2', JSON.stringify(prefsAlex)); } catch(e){}
+  window._prefsIna = prefsIna; window._prefsAlex = prefsAlex;
+  if(window.saveToFirebase) window.saveToFirebase();
+}
+function savePlan() {
+  try { localStorage.setItem('ina_plan_v2', JSON.stringify(wochenplanIna)); localStorage.setItem('alex_plan_v2', JSON.stringify(wochenplanAlex)); } catch(e){}
+  window._wochenplanIna = wochenplanIna; window._wochenplanAlex = wochenplanAlex;
+  if(window.saveToFirebase) window.saveToFirebase();
+}
+
+function getPrefs() { return currentProfile==='alex' ? prefsAlex : prefsIna; }
+function getPlan() { return currentProfile==='alex' ? wochenplanAlex : wochenplanIna; }
+
+function getProfileRezepte() {
+  if (currentProfile==='ina') return alleRezepte.filter(r => r.fuer==='ina' || r.fuer==='beide');
+  if (currentProfile==='alex') return alleRezepte.filter(r => r.fuer==='alex' || r.fuer==='beide');
+  return alleRezepte.filter(r => r.fuer==='beide');
+}
+
+// =====================
+// PROFILE
+// =====================
+function setProfile(p) {
+  currentProfile = p;
+  document.querySelectorAll('.profile-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.profile-btn.'+p).classList.add('active');
+  const nav = document.getElementById('main-nav');
+  nav.className = 'nav' + (p==='alex' ? ' alex-mode' : p==='both' ? ' both-mode' : '');
+  const activeScreen = document.querySelector('.screen.active')?.id?.replace('screen-','');
+  if (activeScreen) showScreen(activeScreen);
+}
+
+// =====================
+// SCREENS
+// =====================
+function showScreen(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  if(name==='entdecken') renderEntdecken();
+  if(name==='rezepte') renderRezepte();
+  if(name==='planer') renderPlaner();
+  if(name==='einkauf') renderShopping();
+}
+
+// =====================
+// ENTDECKEN
+// =====================
+function renderEntdecken() {
+  const screen = document.getElementById('screen-entdecken');
+  const profs = currentProfile==='both' ? [] : getProfileRezepte();
+  const prefs = getPrefs();
+  const unrated = profs.filter(r => !prefs[r.id]);
+  const isAlex = currentProfile==='alex';
+  const headerClass = currentProfile==='alex' ? 'alex-header' : currentProfile==='both' ? 'both-header' : 'ina-header';
+  const profileName = currentProfile==='alex' ? '💪 Alex' : '🌿 Ina';
+
+  if (currentProfile==='both') {
+    screen.innerHTML = `
+      <div class="screen-header ${headerClass}">
+        <div class="profile-badge badge-both">👫 Beide</div>
+        <h1>Entdecken</h1>
+        <p>Wähle ein Profil (Ina oder Alex) um Rezepte zu bewerten</p>
+      </div>
+      <div style="text-align:center;padding:40px 20px;color:var(--mid);">
+        <div style="font-size:48px;margin-bottom:12px;">👫</div>
+        <p style="font-size:13px;line-height:1.7;">Wechsle zu <strong>🌿 Ina</strong> oder <strong>💪 Alex</strong> oben, um Rezepte einzeln zu bewerten.</p>
+      </div>`;
+    return;
+  }
+
+  if (unrated.length === 0) {
+    const liked = profs.filter(r => prefs[r.id]==='liked').length;
+    const disliked = profs.filter(r => prefs[r.id]==='disliked').length;
+    screen.innerHTML = `
+      <div class="screen-header ${headerClass}">
+        <div class="profile-badge badge-${currentProfile}">${profileName}</div>
+        <h1>Alle bewertet! 🎉</h1>
+        <p>Deine Lieblingsrezepte warten im Rezepte-Tab</p>
+      </div>
+      <div class="onboarding-done">
+        <div class="big-emoji">🎉</div>
+        <h2>Fertig, ${isAlex?'Alex':'Ina'}!</h2>
+        <p>${isAlex?'Alle Keto-Rezepte bewertet.':'Alle Rezepte bewertet.'}</p>
+        <div class="done-stats">
+          <div class="done-stat liked ${isAlex?'alex':''}"><div class="done-stat-num">❤️ ${liked}</div><div class="done-stat-label">Mag ich</div></div>
+          <div class="done-stat disliked"><div class="done-stat-num">👎 ${disliked}</div><div class="done-stat-label">Mag nicht</div></div>
+        </div>
+        <button class="start-btn ${isAlex?'alex':''}" onclick="showScreen('rezepte')">Zu meinen Rezepten →</button>
+        <button class="redo-btn" onclick="resetPrefs()">Neu bewerten</button>
+      </div>`;
+    return;
+  }
+
+  const total = profs.length;
+  const rated = total - unrated.length;
+  const r = unrated[0];
+  screen.innerHTML = `
+    <div class="screen-header ${headerClass}">
+      <div class="profile-badge badge-${currentProfile}">${profileName}</div>
+      <h1>Rezepte <em>entdecken</em></h1>
+      <p>❤️ Mag ich &nbsp;·&nbsp; 👎 Mag ich nicht</p>
+    </div>
+    <div class="swipe-screen">
+      <div class="swipe-progress"><div class="swipe-progress-bar ${isAlex?'alex-bar':'ina-bar'}" style="width:${(rated/total)*100}%"></div></div>
+      <div class="swipe-counter">${rated} von ${total} bewertet</div>
+      <div class="swipe-card-container">
+        <div class="swipe-card" id="swipe-card">
+          <span class="swipe-card-type type-${r.type} rezept-type">${slotLabels[r.type]}</span>
+          ${r.ketoOk ? '<span class="keto-badge" style="margin-left:6px;">Keto ✓</span>' : ''}
+          <div class="swipe-card-name">${r.name}</div>
+          <div class="swipe-card-desc">${r.desc}</div>
+          <div class="swipe-card-tags">${r.tags.map(t=>`<span class="swipe-card-tag ${t.includes('Keto')?'keto':''}">${t}</span>`).join('')}</div>
+          <div class="swipe-card-zutaten"><strong>Zutaten</strong>${r.zutaten.join(' · ')}</div>
+          ${r.ketoTipp && isAlex ? `<div style="background:var(--keto-light);border-radius:8px;padding:9px;margin-top:8px;font-size:11px;color:var(--keto);">💪 ${r.ketoTipp}</div>` : ''}
+        </div>
+      </div>
+      <div class="swipe-btns">
+        <button class="swipe-btn btn-dislike" onclick="rateRezept(${r.id},'disliked')">👎</button>
+        <button class="swipe-btn btn-like ${isAlex?'alex':''}" onclick="rateRezept(${r.id},'liked')">❤️</button>
+      </div>
+      <div class="swipe-hint">👎 Mag ich nicht &nbsp;&nbsp; ❤️ Mag ich</div>
+    </div>`;
+}
+
+function rateRezept(id, rating) {
+  const card = document.getElementById('swipe-card');
+  if(card) {
+    card.classList.add(rating==='liked'?'leaving-right':'leaving-left');
+    setTimeout(()=>{
+      if(currentProfile==='alex') prefsAlex[id]=rating;
+      else prefsIna[id]=rating;
+      savePrefs();
+      renderEntdecken();
+    },270);
+  }
+}
+
+function resetPrefs() {
+  if(currentProfile==='alex') prefsAlex={};
+  else prefsIna={};
+  savePrefs();
+  renderEntdecken();
+}
+
+// =====================
+// REZEPTE
+// =====================
+function filterRezepte(type, btn) {
+  currentFilter=type;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRezepte();
+}
+
+function renderRezepte() {
+  const screen = document.getElementById('screen-rezepte');
+  const isAlex = currentProfile==='alex';
+  const isBoth = currentProfile==='both';
+  const prefs = getPrefs();
+  const headerClass = isAlex?'alex-header':isBoth?'both-header':'ina-header';
+  const profileName = isAlex?'💪 Alex':isBoth?'👫 Beide':'🌿 Ina';
+
+  let rezepte = getProfileRezepte();
+  if (currentFilter==='abgelehnt') {
+    const abgelehnt = rezepte.filter(r=>prefs[r.id]==='disliked');
+    screen.innerHTML = `
+      <div class="screen-header ${headerClass}"><div class="profile-badge badge-${currentProfile}">${profileName}</div><h1>Inas <em>Rezepte</em></h1><p>Abgelehnte Rezepte</p></div>
+      ${filterBarHTML()}
+      ${abgelehnt.length===0?'<div class="empty-section">Keine abgelehnten Rezepte 🎉</div>':'<div class="rezept-section-title red">👎 Abgelehnte Rezepte</div><div class="rezepte-list">'+abgelehnt.map(r=>rezeptCardHTML(r)).join('')+'</div>'}`;
+    return;
+  }
+
+  if (currentFilter !== 'alle') rezepte = rezepte.filter(r=>r.type===currentFilter);
+
+  const liked = rezepte.filter(r=>prefs[r.id]==='liked');
+  const unrated = rezepte.filter(r=>!prefs[r.id]);
+  let content = '';
+  if(liked.length>0) content+=`<div class="rezept-section-title">❤️ Meine Lieblinge</div><div class="rezepte-list">${liked.map(r=>rezeptCardHTML(r)).join('')}</div>`;
+  if(unrated.length>0) content+=`<div class="rezept-section-title" style="color:var(--mid)">✨ Alle Rezepte</div><div class="rezepte-list">${unrated.map(r=>rezeptCardHTML(r)).join('')}</div>`;
+  if(!content) content=`<div class="empty-section">Keine Rezepte — geh zu ✨ Entdecken!</div>`;
+
+  const infoText = isAlex ? '💪 Alle Rezepte sind Keto-kompatibel. Abendessen teilt ihr euch — mit kleinen Anpassungen.' : isBoth ? '👫 Alle gemeinsamen Abendessen — kocht einmal für beide!' : '🌿 Inas Rezepte — Frühstück, Mittag, Snack & Abendessen.';
+  const infoClass = isAlex?'alex':isBoth?'both':'ina';
+
+  screen.innerHTML = `
+    <div class="screen-header ${headerClass}"><div class="profile-badge badge-${currentProfile}">${profileName}</div><h1>${isAlex?'Alex':'Inas'} <em>Rezepte</em></h1><p>${isAlex?'Keto · Strikte 20g KH':'Darmaufbau · Oxalatarm · LP(a)-freundlich'}</p></div>
+    <div class="info-box ${infoClass}">${infoText}</div>
+    ${filterBarHTML()}
+    ${content}`;
+}
+
+function filterBarHTML() {
+  const isAlex = currentProfile==='alex';
+  return `<div class="filter-bar">
+    <button class="filter-btn ${currentFilter==='alle'?'active':''}" onclick="filterRezepte('alle',this)">Alle</button>
+    <button class="filter-btn ${currentFilter==='fruehstueck'?'active':''}" onclick="filterRezepte('fruehstueck',this)">🌅 Frühstück</button>
+    <button class="filter-btn ${currentFilter==='mittag'?'active':''}" onclick="filterRezepte('mittag',this)">🥡 Mittag</button>
+    <button class="filter-btn ${currentFilter==='abend'?'active':''}" onclick="filterRezepte('abend',this)">🌙 Abend</button>
+    <button class="filter-btn ${currentFilter==='snack'?'active':''}" onclick="filterRezepte('snack',this)">🍫 Snack</button>
+    ${currentProfile!=='both'?`<button class="filter-btn ${currentFilter==='abgelehnt'?'active':''}" onclick="filterRezepte('abgelehnt',this)">👎 Abgelehnt</button>`:''}
+  </div>`;
+}
+
+function rezeptCardHTML(r) {
+  const prefs = getPrefs();
+  const isAlex = currentProfile==='alex';
+  const badge = prefs[r.id]==='liked'?'❤️':prefs[r.id]==='disliked'?'👎':'';
+  const ketoClass = r.ketoOk?'keto-card':'';
+  const bothClass = r.fuer==='beide'?'both-card':'';
+  return `
+    <div class="rezept-card ${ketoClass} ${bothClass}" onclick="openModal(${r.id})">
+      <div class="rezept-card-inner">
+        <div class="rezept-top">
+          <div class="rezept-name">${r.name}</div>
+          <span class="rezept-type type-${r.type}">${slotLabels[r.type]}</span>
+        </div>
+        <div class="rezept-desc">${r.desc}</div>
+        <div class="rezept-tags">
+          ${r.tags.map(t=>`<span class="rezept-tag ${t.includes('Keto')?'keto-tag':''}">${t}</span>`).join('')}
+          ${r.fuer==='beide'?'<span class="both-badge">👫 Für beide</span>':''}
+          ${r.ketoOk&&isAlex?'<span class="keto-badge">Keto ✓</span>':''}
+        </div>
+        ${r.ketoTipp&&isAlex?`<div class="keto-anpassung"><div class="keto-anpassung-title">💪 Alex Keto-Anpassung</div><div class="keto-anpassung-text">${r.ketoTipp}</div></div>`:''}
+      </div>
+      ${badge?`<div class="like-badge">${badge}</div>`:''}
+    </div>`;
+}
+
+function openModal(id) {
+  const r = alleRezepte.find(x=>x.id===id);
+  const prefs = getPrefs();
+  const isLiked = prefs[r.id]==='liked';
+  const isDisliked = prefs[r.id]==='disliked';
+  const isAlex = currentProfile==='alex';
+  document.getElementById('modal-body').innerHTML = `
+    <span class="rezept-type type-${r.type}" style="display:inline-block;margin-bottom:8px;">${slotLabels[r.type]}</span>
+    ${r.fuer==='beide'?'<span class="both-badge" style="margin-left:6px;">👫 Für beide</span>':''}
+    ${r.ketoOk?'<span class="keto-badge" style="margin-left:6px;">Keto ✓</span>':''}
+    <div class="modal-title">${r.name}</div>
+    <div class="modal-section"><div class="modal-section-title">Beschreibung</div><div class="modal-desc">${r.desc}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Zutaten</div><div class="ingredient-list">${r.zutaten.map(z=>`<div class="ingredient">${z}</div>`).join('')}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Zubereitung</div><div class="modal-prep">${r.zubereitung.replace(/\n/g,'<br>')}<br><br><strong>${r.prep}</strong></div></div>
+    ${r.ketoTipp?`<div class="modal-keto-box"><div class="modal-keto-title">💪 Keto-Anpassung für Alex</div><div class="modal-keto-text">${r.ketoTipp}</div></div>`:''}
+    <div class="modal-btns">
+      <button class="modal-btn modal-btn-like ${isAlex?'alex-like':''} ${isLiked?'active':''}" onclick="togglePref(${r.id},'liked')">❤️ Mag ich${isLiked?' ✓':''}</button>
+      <button class="modal-btn modal-btn-dislike ${isDisliked?'active':''}" onclick="togglePref(${r.id},'disliked')">👎 Mag nicht${isDisliked?' ✓':''}</button>
+    </div>
+    <button class="add-to-plan-btn ${isAlex?'alex-btn':''}" onclick="openSlotPickerFromModal(${r.id})" ${isDisliked?'disabled':''}>➕ Zum Wochenplan hinzufügen</button>`;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function togglePref(id, rating) {
+  if(currentProfile==='alex') prefsAlex[id]=prefsAlex[id]===rating?null:rating;
+  else prefsIna[id]=prefsIna[id]===rating?null:rating;
+  savePrefs();
+  openModal(id);
+  renderRezepte();
+}
+
+function closeModal(e) {
+  if(e.target===document.getElementById('modal-overlay')) document.getElementById('modal-overlay').classList.remove('open');
+}
+
+function openSlotPickerFromModal(id) {
+  document.getElementById('modal-overlay').classList.remove('open');
+  const r = alleRezepte.find(x=>x.id===id);
+  currentSlotType = r.type;
+  document.getElementById('slot-picker-title').textContent = `Welcher Tag? · ${slotLabels[r.type]}`;
+  document.getElementById('slot-picker-list').innerHTML = tage.map(tag=>`
+    <div class="slot-picker-item" onclick="assignRezept('${tag}','${r.type}',${r.id})">
+      <div class="slot-picker-item-name">${tag}</div>
+      <div class="slot-picker-item-desc">${getPlan()[tag][r.type]?'⚠️ Ersetzt: '+getPlan()[tag][r.type].name:'✓ Frei'}</div>
+    </div>`).join('');
+  document.getElementById('slot-picker').classList.add('open');
+}
+
+function assignRezept(tag, type, id) {
+  const r = alleRezepte.find(x=>x.id===id);
+  if(currentProfile==='alex'||currentProfile==='both') wochenplanAlex[tag][type]=r;
+  if(currentProfile==='ina'||currentProfile==='both') wochenplanIna[tag][type]=r;
+  savePlan();
+  document.getElementById('slot-picker').classList.remove('open');
+  renderPlaner();
+  showScreen('planer');
+}
+
+// =====================
+// WOCHENPLANER
+// =====================
+function renderPlaner() {
+  const screen = document.getElementById('screen-planer');
+  const isAlex = currentProfile==='alex';
+  const isBoth = currentProfile==='both';
+  const headerClass = isAlex?'alex-header':isBoth?'both-header':'ina-header';
+  const profileName = isAlex?'💪 Alex':isBoth?'👫 Beide':'🌿 Ina';
+
+  let planHTML = tage.map((tag,i)=>{
+    const planIna = wochenplanIna[tag];
+    const planAlex = wochenplanAlex[tag];
+    const planCurrent = isAlex?planAlex:planIna;
+    const filled = slots.filter(s=>planCurrent[s]).length;
+    return `
+    <div class="day-planner">
+      <div class="day-planner-header ${tagKlassen[i]}">
+        <div class="day-planner-name">${tag}</div>
+        <div class="day-planner-count">${filled}/4 Mahlzeiten</div>
+      </div>
+      <div class="day-meals">
+        ${slots.map(slot=>{
+          const mealIna = planIna[slot];
+          const mealAlex = planAlex[slot];
+          if(isBoth) {
+            // Show both
+            if(mealIna&&mealAlex&&mealIna.id===mealAlex.id) {
+              return `<div class="day-meal-slot filled both-filled">
+                <span class="slot-type">${slotLabels[slot]}</span>
+                <span class="slot-name">${mealIna.name}</span>
+                <span class="slot-who both">👫</span>
+                <button class="slot-remove" onclick="removeSlot('${tag}','${slot}','both')">✕</button>
+              </div>`;
+            }
+            let r='';
+            if(mealIna) r+=`<div class="day-meal-slot filled" style="margin-bottom:3px;">
+              <span class="slot-type">${slotLabels[slot]}</span>
+              <span class="slot-name">${mealIna.name}</span>
+              <span class="slot-who ina">Ina</span>
+              <button class="slot-remove" onclick="removeSlot('${tag}','${slot}','ina')">✕</button>
+            </div>`;
+            if(mealAlex) r+=`<div class="day-meal-slot filled alex-filled">
+              <span class="slot-type">${slotLabels[slot]}</span>
+              <span class="slot-name">${mealAlex.name}</span>
+              <span class="slot-who alex">Alex</span>
+              <button class="slot-remove" onclick="removeSlot('${tag}','${slot}','alex')">✕</button>
+            </div>`;
+            if(!mealIna&&!mealAlex) r=`<div class="day-meal-slot" onclick="openSlotPicker('${tag}','${slot}')">
+              <span class="slot-type">${slotLabels[slot]}</span>
+              <span class="slot-empty">Tippen zum Hinzufügen</span>
+            </div>`;
+            return r;
+          }
+          const meal = planCurrent[slot];
+          if(meal) return `<div class="day-meal-slot filled ${isAlex?'alex-filled':''}">
+            <span class="slot-type">${slotLabels[slot]}</span>
+            <span class="slot-name">${meal.name}</span>
+            ${meal.ketoOk&&isAlex?'<span class="slot-who alex">Keto ✓</span>':''}
+            <button class="slot-remove" onclick="removeSlot('${tag}','${slot}','${currentProfile}')">✕</button>
+          </div>`;
+          return `<div class="day-meal-slot" onclick="openSlotPicker('${tag}','${slot}')">
+            <span class="slot-type">${slotLabels[slot]}</span>
+            <span class="slot-empty">Tippen zum Hinzufügen</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+
+  screen.innerHTML = `
+    <div class="screen-header ${headerClass}"><div class="profile-badge badge-${currentProfile}">${profileName}</div><h1>Dein <em>Wochenplan</em></h1><p>Tippe auf einen Slot um ein Rezept zuzuweisen</p></div>
+    <div class="week-planner">${planHTML}</div>`;
+}
+
+function openSlotPicker(tag, type) {
+  currentSlotDay=tag;
+  currentSlotType=type;
+  const isAlex = currentProfile==='alex';
+  const prefs = getPrefs();
+  const rezepte = getProfileRezepte().filter(r=>r.type===type);
+  const liked = rezepte.filter(r=>prefs[r.id]==='liked');
+  const unrated = rezepte.filter(r=>!prefs[r.id]);
+  let html='';
+  if(liked.length>0){html+=`<div class="slot-picker-section ${isAlex?'sp-alex':'sp-ina'}">❤️ Meine Lieblinge</div>`;html+=liked.map(r=>`<div class="slot-picker-item" onclick="assignFromPlaner(${r.id})"><div class="slot-picker-item-name">${r.name} ${r.ketoOk?'<span style="font-size:10px;color:var(--keto);">Keto ✓</span>':''}</div><div class="slot-picker-item-desc">${r.desc.substring(0,55)}...</div></div>`).join('');}
+  if(unrated.length>0){html+=`<div class="slot-picker-section sp-both">✨ Alle</div>`;html+=unrated.map(r=>`<div class="slot-picker-item" onclick="assignFromPlaner(${r.id})"><div class="slot-picker-item-name">${r.name} ${r.ketoOk?'<span style="font-size:10px;color:var(--keto);">Keto ✓</span>':''}</div><div class="slot-picker-item-desc">${r.desc.substring(0,55)}...</div></div>`).join('');}
+  document.getElementById('slot-picker-title').textContent=`${tag} · ${slotLabels[type]}`;
+  document.getElementById('slot-picker-list').innerHTML=html;
+  document.getElementById('slot-picker').classList.add('open');
+}
+
+function assignFromPlaner(id) {
+  const r = alleRezepte.find(x=>x.id===id);
+  if(currentProfile==='alex') wochenplanAlex[currentSlotDay][currentSlotType]=r;
+  else if(currentProfile==='ina') wochenplanIna[currentSlotDay][currentSlotType]=r;
+  else { wochenplanIna[currentSlotDay][currentSlotType]=r; wochenplanAlex[currentSlotDay][currentSlotType]=r; }
+  savePlan();
+  document.getElementById('slot-picker').classList.remove('open');
+  renderPlaner();
+}
+
+function removeSlot(tag,type,who) {
+  if(who==='ina'||who==='both') wochenplanIna[tag][type]=null;
+  if(who==='alex'||who==='both') wochenplanAlex[tag][type]=null;
+  savePlan();
+  renderPlaner();
+}
+
+function closeSlotPicker(e) {
+  if(e.target===document.getElementById('slot-picker')) document.getElementById('slot-picker').classList.remove('open');
+}
+
+// =====================
+// EINKAUFSLISTE
+// =====================
+function renderShopping() {
+  const screen = document.getElementById('screen-einkauf');
+  const isAlex = currentProfile==='alex';
+  const isBoth = currentProfile==='both';
+  const headerClass = isAlex?'alex-header':isBoth?'both-header':'ina-header';
+  const profileName = isAlex?'💪 Alex':isBoth?'👫 Beide':'🌿 Ina';
+
+  let plans = [];
+  if(!isAlex) plans=plans.concat(Object.values(wochenplanIna).flatMap(day=>slots.map(s=>day[s]).filter(Boolean)));
+  if(isAlex||isBoth) plans=plans.concat(Object.values(wochenplanAlex).flatMap(day=>slots.map(s=>day[s]).filter(Boolean)));
+  // Deduplicate by id
+  const seen=new Set();
+  const allMeals=plans.filter(m=>{if(seen.has(m.id))return false;seen.add(m.id);return true;});
+
+  screen.innerHTML = `<div class="screen-header ${headerClass}"><div class="profile-badge badge-${currentProfile}">${profileName}</div><h1>Einkaufs<em>liste</em></h1><p>Automatisch aus dem Wochenplan</p></div><div id="shopping-inner" style="padding:11px 16px;"></div>`;
+
+  const inner = document.getElementById('shopping-inner');
+  if(allMeals.length===0){inner.innerHTML=`<div class="shopping-empty"><div class="emoji">🛒</div><p>Plane zuerst den Wochenplan — dann erscheint die Einkaufsliste hier automatisch!</p></div>`;return;}
+
+  const merged={};
+  allMeals.forEach(meal=>{Object.entries(meal.einkauf).forEach(([cat,items])=>{if(!merged[cat])merged[cat]={};items.forEach(item=>{merged[cat][item]=(merged[cat][item]||0)+1;});});});
+
+  const inaCount=Object.values(wochenplanIna).flatMap(d=>slots.map(s=>d[s]).filter(Boolean)).length;
+  const alexCount=Object.values(wochenplanAlex).flatMap(d=>slots.map(s=>d[s]).filter(Boolean)).length;
+  const summaryClass=isBoth?'both-summary':isAlex?'alex-summary':'ina-summary';
+  let summaryText=`📅 Wochenplan: `;
+  if(!isAlex) summaryText+=`🌿 Ina: ${inaCount} Mahlzeiten `;
+  if(isAlex||isBoth) summaryText+=`💪 Alex: ${alexCount} Mahlzeiten`;
+
+  let html=`<div class="week-summary ${summaryClass}">${summaryText}</div>`;
+  const catOrder=['Protein','Fisch','Gemüse','Milchprodukte','Obst & Beeren','Vorrat','Öle & Würzen','Snacks','Kräuter'];
+  const cats=[...catOrder.filter(c=>merged[c]),...Object.keys(merged).filter(c=>!catOrder.includes(c))];
+  const catClass=isAlex?'cat-alex':isBoth?'cat-both':'cat-ina';
+  cats.forEach(cat=>{
+    if(!merged[cat])return;
+    html+=`<div class="shopping-category"><div class="shopping-cat-title ${catClass}">${cat}</div>`;
+    Object.entries(merged[cat]).forEach(([item,count])=>{
+      const key=cat+'_'+item;
+      const checked=checkedItems[key]?'checked':'';
+      html+=`<div class="shopping-item ${checked}" onclick="toggleItem('${key}',this)"><div class="shopping-checkbox"></div><span class="shopping-item-name">${item}</span>${count>1?`<span class="shopping-item-amount">${count}×</span>`:''}</div>`;
+    });
+    html+='</div>';
+  });
+  html+=`<button class="clear-btn" onclick="clearPlan()">🗑️ Wochenplan zurücksetzen</button>`;
+  inner.innerHTML=html;
+}
+
+function toggleItem(key,el){checkedItems[key]=!checkedItems[key];el.classList.toggle('checked');}
+function clearPlan(){
+  if(confirm('Wochenplan zurücksetzen?')){
+    tage.forEach(t=>{wochenplanIna[t]={fruehstueck:null,snack:null,mittag:null,abend:null};wochenplanAlex[t]={fruehstueck:null,snack:null,mittag:null,abend:null};});
+    checkedItems={};savePlan();renderPlaner();renderShopping();
+  }
+}
+
+
+// Expose to window for Firebase sync
+window.alleRezepte = alleRezepte;
+window._prefsIna = prefsIna;
+window._prefsAlex = prefsAlex;
+window._wochenplanIna = wochenplanIna;
+window._wochenplanAlex = wochenplanAlex;
+window.renderRezepte = renderRezepte;
+window.renderPlaner = renderPlaner;
+window.renderEntdecken = renderEntdecken;
+window.renderShopping = renderShopping;
+// INIT
+renderRezepte();
+renderPlaner();
+</script>
+</body>
+</html>
