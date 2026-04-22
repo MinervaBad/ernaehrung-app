@@ -370,20 +370,30 @@ body{background:var(--cream);font-family:'DM Sans',sans-serif;color:var(--dark);
       }
     });
 
+    // Load from Firebase function
+    async function loadFromFirebase() {
+      try {
+        const snapshot = await getDoc(doc(db, COLL, DOC_ID));
+        if(snapshot.exists()) {
+          restoreFromData(snapshot.data());
+          // Re-render current screen
+          const activeScreen = document.querySelector('.screen.active')?.id?.replace('screen-','');
+          if(activeScreen) {
+            const fn = window['render' + activeScreen.charAt(0).toUpperCase() + activeScreen.slice(1)];
+            if(fn) fn();
+          }
+        }
+      } catch(e) { console.error('Load error:', e); }
+    }
+
     // Load initial data
-    getDoc(doc(db, COLL, DOC_ID)).then(snapshot => {
-      if(snapshot.exists()) {
-        restoreFromData(snapshot.data());
-        showSyncStatus('✓ Daten geladen', '#4a7050');
-        window.renderRezepte && window.renderRezepte();
-        window.renderPlaner && window.renderPlaner();
-      } else {
-        showSyncStatus('✓ Bereit — neue Daten', '#4a7050');
-      }
+    loadFromFirebase().then(() => {
+      showSyncStatus('✓ Daten geladen', '#4a7050');
     });
 
-    // Expose save function globally
+    // Expose functions globally
     window.saveToFirebase = saveToFirebase;
+    window.loadFromFirebase = loadFromFirebase;
   </script>
 </head>
 <body>
@@ -994,6 +1004,18 @@ window.syncWochenplanAlex = function(data) {
   Object.keys(wochenplanAlex).forEach(k => delete wochenplanAlex[k]);
   Object.assign(wochenplanAlex, data);
 };
+
+// Auto-refresh when app becomes visible again (switching tabs/back to app)
+document.addEventListener('visibilitychange', function() {
+  if(!document.hidden && window.loadFromFirebase) {
+    window.loadFromFirebase();
+  }
+});
+
+// Also refresh every 15 seconds in background
+setInterval(function() {
+  if(window.loadFromFirebase) window.loadFromFirebase();
+}, 15000);
 // INIT
 renderRezepte();
 renderPlaner();
